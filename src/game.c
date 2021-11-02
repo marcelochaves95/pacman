@@ -6,6 +6,21 @@
 MAP map;
 POSITION position;
 
+void ghosts() {
+    MAP copy;
+    copy_map(&copy, &map);
+
+    for (int i = 0; i < map.lines; i++) {
+        for (int j = 0; j < map.columns; j++) {
+            if (copy.matrix[i][j] == GHOST) {
+                if (is_valid(&map, i, j + 1) && is_valid(&map, i, j + 1)) {
+                    walk_in_map(&map, i, j, i, j + 1);
+                }
+            }
+        }
+    }
+}
+
 void space() {
     printf("\n");
 }
@@ -60,6 +75,7 @@ int main() {
         char command;
         scanf(" %c", &command);
         move(command);
+        ghosts();
     } while (!finish());    
 
     free_map(&map);

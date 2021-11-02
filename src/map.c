@@ -1,7 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "map.h"
 #include "game.h"
+
+void copy_map(MAP* map_origin, MAP* map_destiny) {
+    map_destiny->lines = map_origin->lines;
+    map_destiny->columns = map_origin->columns;
+
+    alloc_map(map_destiny);
+    for (int i = 0; i < map_origin->lines; i++)
+    {
+        strcpy(map_destiny->matrix[i], map_origin->matrix[i]);
+    }
+}
 
 void walk_in_map(MAP* map, int x_origin, int y_origin, int x_destiny, int y_destiny) {
     char character = map->matrix[x_origin][y_origin];
@@ -19,6 +31,7 @@ int is_valid(MAP* map, int x, int y) {
 
     return 1;
 }
+
 void found_map(MAP* map, POSITION* position, char c) {
     for (int i = 0; i < map->lines; i++) {
         for (int j = 0; j < map->columns; j++) {

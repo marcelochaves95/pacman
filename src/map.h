@@ -1,4 +1,5 @@
 #define HERO '@'
+#define GHOST 'G'
 #define EMPTY '.'
 #define VERTICAL_LIMIT '|'
 #define HORIZONTAL_LIMIT '-'
@@ -26,3 +27,4 @@ void found_map(MAP* map, POSITION* position, char c);
 int is_valid(MAP* map, int x, int y);
 int is_empty(MAP* map, int x, int y);
 void walk_in_map(MAP* map, int x_origin, int y_origin, int x_destiny, int y_destiny);
+void copy_map(MAP* map_origin, MAP* map_destiny);
