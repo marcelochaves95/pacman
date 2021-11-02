@@ -3,6 +3,8 @@
 #define EMPTY '.'
 #define VERTICAL_WALL '|'
 #define HORIZONTAL_WALL '-'
+#define PILL 'P'
+#define BOMB 'b'
 
 struct map {
     char** matrix;

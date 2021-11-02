@@ -6,6 +6,7 @@
 
 MAP map;
 POSITION position;
+int has_pill = 0;
 
 int ghost_ai(int current_x, int current_y, int* destiny_x, int* destiny_y) {
     int options[4][2] = {
@@ -33,8 +34,8 @@ void ghosts() {
     MAP copy;
     copy_map(&map, &copy);
 
-    for (int i = 0; i < map.lines; i++) {
-        for (int j = 0; j < map.columns; j++) {
+    for (int i = 0; i < copy.lines; i++) {
+        for (int j = 0; j < copy.columns; j++) {
             if (copy.matrix[i][j] == GHOST) {
                 int destiny_x;
                 int destiny_y;
@@ -46,6 +47,8 @@ void ghosts() {
             }
         }
     }
+
+    free_map(&copy);
 }
 
 void space() {
@@ -88,9 +91,17 @@ void move(char direction) {
 
     if (!can_move(&map, CHARACTER, prox_x, prox_y)) return;
 
+    if (is_character(&map, PILL, prox_x, prox_y)) {
+        has_pill = 1;
+    }
+
     walk_in_map(&map, position.x, position.y, prox_x, prox_y);
     position.x = prox_x;
     position.y = prox_y;
+}
+
+void pill_explode() {
+    printf("OLHA A BOMBA");
 }
 
 int main() {
@@ -98,11 +109,16 @@ int main() {
     found_map(&map, &position, CHARACTER);
 
     do {
+        printf("Has pill: %s\n", has_pill ? "YES" : "NO");
         print_map(&map);
 
         char command;
         scanf(" %c", &command);
         move(command);
+        if (command == BOMB) {
+            pill_explode();
+        }
+
         ghosts();
     } while (!finish());    
 
