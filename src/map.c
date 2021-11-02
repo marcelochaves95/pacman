@@ -32,8 +32,19 @@ int is_valid(MAP* map, int x, int y) {
     return 1;
 }
 
-int can_move(MAP* map, int x, int y) {
-    return is_valid(map, x, y) && is_empty(map, x, y);
+int is_wall(MAP* map, int x, int y) {
+    return map->matrix[x][y] == VERTICAL_WALL
+           || map->matrix[x][y] == HORIZONTAL_WALL;
+}
+
+int is_character(MAP* map, char character, int x, int y) {
+    return map->matrix[x][y] == character;
+}
+
+int can_move(MAP* map, char character, int x, int y) {
+    return is_valid(map, x, y)
+           && !is_wall(map, x, y)
+           && !is_character(map, character, x, y);
 }
 
 int found_map(MAP* map, POSITION* position, char c) {
