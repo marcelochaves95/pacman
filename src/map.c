@@ -3,6 +3,22 @@
 #include "map.h"
 #include "game.h"
 
+void walk_in_map(MAP* map, int x_origin, int y_origin, int x_destiny, int y_destiny) {
+    char character = map->matrix[x_origin][y_origin];
+    map->matrix[x_destiny][y_destiny] = character;
+    map->matrix[x_origin][y_origin] = '.';
+}
+
+int is_empty(MAP* map, int x, int y) {
+    return map->matrix[x][y] == '.';
+}
+
+int is_valid(MAP* map, int x, int y) {
+    if (x >= map->lines) return 0;
+    if (y >= map->columns) return 0;
+
+    return 1;
+}
 void found_map(MAP* map, POSITION* position, char c) {
     for (int i = 0; i < map->lines; i++) {
         for (int j = 0; j < map->columns; j++) {
@@ -14,6 +30,7 @@ void found_map(MAP* map, POSITION* position, char c) {
         }
     }
 }
+
 void free_map(MAP* map) {
     for (int i = 0; i < map->lines; i++) {
         free(map->matrix[i]);

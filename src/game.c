@@ -14,12 +14,15 @@ int finish() {
     return 0;
 }
 
+int is_direction(char direction) {
+    return direction == 'a'
+        || direction == 'w'
+        || direction == 's'
+        || direction == 'd';
+}
+
 void move(char direction) {
-    if (direction != 'a'
-        && direction != 'w'
-        && direction != 's'
-        && direction != 'a')
-        return;
+    if (!is_direction(direction)) return;
 
     int prox_x = position.x;
     int prox_y = position.y;
@@ -39,15 +42,12 @@ void move(char direction) {
             break;
     }
 
-    if (prox_x >= map.lines) return;
-    if (prox_y >= map.columns) return;
-    if (map.matrix[prox_x][prox_y] != '.') return;
+    if (!is_valid(&map, prox_x, prox_y)) return;
+    if (!is_empty(&map, prox_x, prox_y)) return;
 
-    map.matrix[prox_x][prox_y] = '@';
-    map.matrix[position.x][position.y] = '.';
+    walk_in_map(&map, position.x, position.y, prox_x, prox_y);
     position.x = prox_x;
     position.y = prox_y;
-    
 }
 
 int main() {
