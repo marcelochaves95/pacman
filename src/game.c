@@ -8,7 +8,7 @@ POSITION position;
 
 void ghosts() {
     MAP copy;
-    copy_map(&copy, &map);
+    copy_map(&map, &copy);
 
     for (int i = 0; i < map.lines; i++) {
         for (int j = 0; j < map.columns; j++) {
@@ -30,9 +30,9 @@ int finish() {
 }
 
 int is_direction(char direction) {
-    return direction == LEFT
-        || direction == UP
+    return direction == UP
         || direction == DOWN
+        || direction == LEFT
         || direction == RIGHT;
 }
 
@@ -43,14 +43,14 @@ void move(char direction) {
     int prox_y = position.y;
 
     switch (direction) {
-        case LEFT:
-            prox_y--;
-            break;
         case UP:
             prox_x--;
             break;
         case DOWN:
             prox_x++;
+            break;
+        case LEFT:
+            prox_y--;
             break;
         case RIGHT:
             prox_y++;
