@@ -32,16 +32,23 @@ int is_valid(MAP* map, int x, int y) {
     return 1;
 }
 
-void found_map(MAP* map, POSITION* position, char c) {
+int can_move(MAP* map, int x, int y) {
+    return is_valid(map, x, y) && is_empty(map, x, y);
+}
+
+int found_map(MAP* map, POSITION* position, char c) {
     for (int i = 0; i < map->lines; i++) {
         for (int j = 0; j < map->columns; j++) {
             if (map->matrix[i][j] == c) {
                 position->x = i;
                 position->y = j;
-                break;
+
+                return 1;
             }
         }
     }
+
+    return 0;
 }
 
 void free_map(MAP* map) {

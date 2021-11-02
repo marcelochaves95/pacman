@@ -18,8 +18,7 @@ int ghost_ai(int current_x, int current_y, int* destiny_x, int* destiny_y) {
     srand(time(0));
     for (int i = 0; i < 10; i++) {
         int position = rand() % 4;
-        if (is_valid(&map, options[position][0], options[position][1])
-            && is_empty(&map, options[position][0], options[position][1])) {
+        if (can_move(&map, options[position][0], options[position][1])) {
             *destiny_x = options[position][0];
             *destiny_y = options[position][1];
 
@@ -54,7 +53,9 @@ void space() {
 }
 
 int finish() {
-    return 0;
+    POSITION pos;
+    int pacman = found_map(&map, &pos, HERO);
+    return !pacman;
 }
 
 int is_direction(char direction) {
@@ -85,8 +86,7 @@ void move(char direction) {
             break;
     }
 
-    if (!is_valid(&map, prox_x, prox_y)) return;
-    if (!is_empty(&map, prox_x, prox_y)) return;
+    if (!can_move(&map, prox_x, prox_y)) return;
 
     walk_in_map(&map, position.x, position.y, prox_x, prox_y);
     position.x = prox_x;
