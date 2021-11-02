@@ -3,6 +3,7 @@
 #include <time.h>
 #include "game.h"
 #include "map.h"
+#include "ui.h"
 
 MAP map;
 POSITION position;

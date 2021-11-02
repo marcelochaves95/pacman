@@ -1,3 +1,6 @@
+#ifndef _MAP_H_
+#define _MAP_H_
+
 #define CHARACTER '@'
 #define GHOST 'G'
 #define EMPTY '.'
@@ -24,7 +27,6 @@ typedef struct position POSITION;
 void free_map(MAP* map);
 void read_map(MAP* map);
 void alloc_map(MAP* map);
-void print_map(MAP* map);
 int found_map(MAP* map, POSITION* position, char c);
 int is_valid(MAP* map, int x, int y);
 int is_empty(MAP* map, int x, int y);
@@ -33,3 +35,5 @@ void copy_map(MAP* map_origin, MAP* map_destiny);
 int can_move(MAP* map, char character, int x, int y);
 int is_character(MAP* map, char character, int x, int y);
 int is_wall(MAP* map, int x, int y);
+
+#endif

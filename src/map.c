@@ -103,9 +103,3 @@ void alloc_map(MAP* map) {
         map->matrix[i] = malloc(sizeof(char) * (map->columns + 1));
     }
 }
-
-void print_map(MAP* map) {
-    for (int i = 0; i < map->lines; i++) {
-        printf("%s\n", map->matrix[i]);
-    }
-}
