@@ -3,6 +3,17 @@
 #include "map.h"
 #include "game.h"
 
+void found_map(MAP* map, POSITION* position, char c) {
+    for (int i = 0; i < map->lines; i++) {
+        for (int j = 0; j < map->columns; j++) {
+            if (map->matrix[i][j] == c) {
+                position->x = i;
+                position->y = j;
+                break;
+            }
+        }
+    }
+}
 void free_map(MAP* map) {
     for (int i = 0; i < map->lines; i++) {
         free(map->matrix[i]);

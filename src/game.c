@@ -4,6 +4,7 @@
 #include "map.h"
 
 MAP map;
+POSITION position;
 
 void space() {
     printf("\n");
@@ -14,40 +15,30 @@ int finish() {
 }
 
 void move(char direction) {
-    int x;
-    int y;
-
-    for (int i = 0; i < map.lines; i++) {
-        for (int j = 0; j < map.columns; j++) {
-            if (map.matrix[i][j] == '@') {
-                x = i;
-                y = j;
-                break;
-            }
-        }
-    }
-
-    switch (direction)
-    {
+    map.matrix[position.x][position.y] = '.';
+    switch (direction) {
         case 'a':
-            map.matrix[x][y - 1] = '@';
+            map.matrix[position.x][position.y - 1] = '@';
+            position.y--;
             break;
         case 'w':
-            map.matrix[x - 1][y] = '@';
+            map.matrix[position.x - 1][position.y] = '@';
+            position.x--;
             break;
         case 's':
-            map.matrix[x + 1][y] = '@';
+            map.matrix[position.x + 1][position.y] = '@';
+            position.x++;
             break;
         case 'd':
-            map.matrix[x][y + 1] = '@';
+            map.matrix[position.x][position.y + 1] = '@';
+            position.y++;
             break;
     }
-
-    map.matrix[x][y] = '.';
 }
 
 int main() {
     read_map(&map);
+    found_map(&map, &position, '@');
 
     do {
         print_map(&map);
