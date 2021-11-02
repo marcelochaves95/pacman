@@ -101,10 +101,14 @@ void move(char direction) {
 }
 
 void pill_explode() {
+    if (!has_pill) return;
+
     pill_explode2(position.x, position.y, 0, 1, 3);
     pill_explode2(position.x, position.y, 0, -1, 3);
     pill_explode2(position.x, position.y, 1, 0, 3);
     pill_explode2(position.x, position.y, -1, 0, 3);
+
+    has_pill = 0;
 }
 
 void pill_explode2(int x, int y, int sum_x, int sum_y, int quantity) {
