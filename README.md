@@ -1,2 +1,3 @@
 # Pacman
-Pacman game written in C.
+
+![](files/game.png)
