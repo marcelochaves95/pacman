@@ -54,13 +54,60 @@ void alloc_map() {
     }
 }
 
-int main() {
-    read_map();
-
+void print_map() {
     for (int i = 0; i < lines; i++)
     {
         printf("%s\n", map[i]);
     }
+}
+
+int finish() {
+    return 0;
+}
+
+void move(char direction) {
+    int x;
+    int y;
+
+    for (int i = 0; i < lines; i++) {
+        for (int j = 0; j < columns; j++) {
+            if (map[i][j] == '@') {
+                x = i;
+                y = j;
+                break;
+            }
+        }
+    }
+
+    switch (direction)
+    {
+        case 'a':
+            map[x][y - 1] = '@';
+            break;
+        case 'w':
+            map[x - 1][y] = '@';
+            break;
+        case 's':
+            map[x + 1][y] = '@';
+            break;
+        case 'd':
+            map[x][y + 1] = '@';
+            break;
+    }
+
+    map[x][y] = '.';
+}
+
+int main() {
+    read_map();
+
+    do {
+        print_map();
+
+        char command;
+        scanf(" %c", &command);
+        move(command);
+    } while (!finish());    
 
     free_map();
 
