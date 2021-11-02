@@ -1,3 +1,8 @@
+#define HERO '@'
+#define EMPTY '.'
+#define VERTICAL_LIMIT '|'
+#define HORIZONTAL_LIMIT '-'
+
 struct map {
     char** matrix;
     int lines;

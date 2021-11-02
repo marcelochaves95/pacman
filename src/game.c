@@ -15,10 +15,10 @@ int finish() {
 }
 
 int is_direction(char direction) {
-    return direction == 'a'
-        || direction == 'w'
-        || direction == 's'
-        || direction == 'd';
+    return direction == LEFT
+        || direction == UP
+        || direction == DOWN
+        || direction == RIGHT;
 }
 
 void move(char direction) {
@@ -28,16 +28,16 @@ void move(char direction) {
     int prox_y = position.y;
 
     switch (direction) {
-        case 'a':
+        case LEFT:
             prox_y--;
             break;
-        case 'w':
+        case UP:
             prox_x--;
             break;
-        case 's':
+        case DOWN:
             prox_x++;
             break;
-        case 'd':
+        case RIGHT:
             prox_y++;
             break;
     }
@@ -52,7 +52,7 @@ void move(char direction) {
 
 int main() {
     read_map(&map);
-    found_map(&map, &position, '@');
+    found_map(&map, &position, HERO);
 
     do {
         print_map(&map);
