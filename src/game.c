@@ -100,15 +100,11 @@ void move(char direction) {
     position.y = prox_y;
 }
 
-void pill_explode() {
-    for (int i = 0; i < 3; i++)
-    {
-        if (is_valid(&map, position.x, position.y + i)) {
-                if (is_wall(&map, position.x, position.y + i)) break;
+void pill_explode(int x, int y, int quantity) {
+    if (quantity == 0) return;
 
-                map.matrix[position.x][position.y + i] = EMPTY;
-        }
-    }
+    map.matrix[x][y + 1] = EMPTY;
+    pill_explode(x, y + 1, quantity - 1);
 }
 
 int main() {
@@ -123,7 +119,7 @@ int main() {
         scanf(" %c", &command);
         move(command);
         if (command == BOMB) {
-            pill_explode();
+            pill_explode(position.x, position.y, 3);
         }
 
         ghosts();
