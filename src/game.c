@@ -15,7 +15,14 @@ int finish() {
 }
 
 void move(char direction) {
+    if (direction != 'a'
+        && direction != 'w'
+        && direction != 's'
+        && direction != 'a')
+        return;
+
     map.matrix[position.x][position.y] = '.';
+
     switch (direction) {
         case 'a':
             map.matrix[position.x][position.y - 1] = '@';
