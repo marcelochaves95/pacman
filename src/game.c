@@ -2,21 +2,19 @@
 #include <stdlib.h>
 #include "game.h"
 
-char** map;
-int lines;
-int columns;
+struct map m;
 
 void space() {
     printf("\n");
 }
 
 void free_map() {
-    for (int i = 0; i < lines; i++)
+    for (int i = 0; i < m.lines; i++)
     {
-        free(map[i]);
+        free(m.matrix[i]);
     }
 
-    free(map);
+    free(m.matrix);
 }
 
 void read_map() {
@@ -35,29 +33,29 @@ void read_map() {
         exit(1);
     }
 
-    fscanf(file, "%d %d", &lines, &columns);
+    fscanf(file, "%d %d", &m.lines, &m.columns);
 
     alloc_map();
 
-    for (int i = 0; i < lines; i++)
+    for (int i = 0; i < m.lines; i++)
     {
-        fscanf(file, "%s", map[i]);
+        fscanf(file, "%s", m.matrix[i]);
     }
 
     fclose(file);
 }
 
 void alloc_map() {
-    map = malloc(sizeof(char*) * lines);
-    for (int i = 0; i < lines; i++) {
-        map[i] = malloc(sizeof(char) * (columns + 1));
+    m.matrix = malloc(sizeof(char*) * m.lines);
+    for (int i = 0; i < m.lines; i++) {
+        m.matrix[i] = malloc(sizeof(char) * (m.columns + 1));
     }
 }
 
 void print_map() {
-    for (int i = 0; i < lines; i++)
+    for (int i = 0; i < m.lines; i++)
     {
-        printf("%s\n", map[i]);
+        printf("%s\n", m.matrix[i]);
     }
 }
 
@@ -69,9 +67,9 @@ void move(char direction) {
     int x;
     int y;
 
-    for (int i = 0; i < lines; i++) {
-        for (int j = 0; j < columns; j++) {
-            if (map[i][j] == '@') {
+    for (int i = 0; i < m.lines; i++) {
+        for (int j = 0; j < m.columns; j++) {
+            if (m.matrix[i][j] == '@') {
                 x = i;
                 y = j;
                 break;
@@ -82,20 +80,20 @@ void move(char direction) {
     switch (direction)
     {
         case 'a':
-            map[x][y - 1] = '@';
+            m.matrix[x][y - 1] = '@';
             break;
         case 'w':
-            map[x - 1][y] = '@';
+            m.matrix[x - 1][y] = '@';
             break;
         case 's':
-            map[x + 1][y] = '@';
+            m.matrix[x + 1][y] = '@';
             break;
         case 'd':
-            map[x][y + 1] = '@';
+            m.matrix[x][y + 1] = '@';
             break;
     }
 
-    map[x][y] = '.';
+    m.matrix[x][y] = '.';
 }
 
 int main() {
