@@ -102,6 +102,8 @@ void move(char direction) {
 
 void pill_explode(int x, int y, int quantity) {
     if (quantity == 0) return;
+    if (!is_valid(&map, x, y + 1)) return;
+    if (is_wall(&map, x, y + 1)) return;
 
     map.matrix[x][y + 1] = EMPTY;
     pill_explode(x, y + 1, quantity - 1);
