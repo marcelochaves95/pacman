@@ -101,7 +101,14 @@ void move(char direction) {
 }
 
 void pill_explode() {
-    printf("OLHA A BOMBA");
+    for (int i = 0; i < 3; i++)
+    {
+        if (is_valid(&map, position.x, position.y + i)) {
+                if (is_wall(&map, position.x, position.y + i)) break;
+
+                map.matrix[position.x][position.y + i] = EMPTY;
+        }
+    }
 }
 
 int main() {
