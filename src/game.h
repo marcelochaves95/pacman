@@ -11,3 +11,5 @@ struct map {
     int lines;
     int columns;
 };
+
+typedef struct map MAP;
