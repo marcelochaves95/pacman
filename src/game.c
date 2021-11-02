@@ -21,26 +21,33 @@ void move(char direction) {
         && direction != 'a')
         return;
 
-    map.matrix[position.x][position.y] = '.';
+    int prox_x = position.x;
+    int prox_y = position.y;
 
     switch (direction) {
         case 'a':
-            map.matrix[position.x][position.y - 1] = '@';
-            position.y--;
+            prox_y--;
             break;
         case 'w':
-            map.matrix[position.x - 1][position.y] = '@';
-            position.x--;
+            prox_x--;
             break;
         case 's':
-            map.matrix[position.x + 1][position.y] = '@';
-            position.x++;
+            prox_x++;
             break;
         case 'd':
-            map.matrix[position.x][position.y + 1] = '@';
-            position.y++;
+            prox_y++;
             break;
     }
+
+    if (prox_x >= map.lines) return;
+    if (prox_y >= map.columns) return;
+    if (map.matrix[prox_x][prox_y] != '.') return;
+
+    map.matrix[prox_x][prox_y] = '@';
+    map.matrix[position.x][position.y] = '.';
+    position.x = prox_x;
+    position.y = prox_y;
+    
 }
 
 int main() {
