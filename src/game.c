@@ -1,10 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "game.h"
 #include "map.h"
 
 MAP map;
 POSITION position;
+
+int ghost_ai(int current_x, int current_y, int* destiny_x, int* destiny_y) {
+    int options[4][2] = {
+        { current_x, current_y + 1},
+        { current_x + 1, current_y},
+        { current_x, current_y - 1},
+        { current_x - 1, current_y}
+    };
+
+    srand(time(0));
+    for (int i = 0; i < 10; i++) {
+        int position = rand() % 4;
+        if (is_valid(&map, options[position][0], options[position][1])
+            && is_empty(&map, options[position][0], options[position][1])) {
+            *destiny_x = options[position][0];
+            *destiny_y = options[position][1];
+
+            return 1;
+        }
+    }
+
+    return 0;
+}
 
 void ghosts() {
     MAP copy;
@@ -13,8 +37,12 @@ void ghosts() {
     for (int i = 0; i < map.lines; i++) {
         for (int j = 0; j < map.columns; j++) {
             if (copy.matrix[i][j] == GHOST) {
-                if (is_valid(&map, i, j + 1) && is_valid(&map, i, j + 1)) {
-                    walk_in_map(&map, i, j, i, j + 1);
+                int destiny_x;
+                int destiny_y;
+
+                int found = ghost_ai(i, j, &destiny_x, &destiny_y);
+                if (found) {
+                    walk_in_map(&map, i, j, destiny_x, destiny_y);
                 }
             }
         }
