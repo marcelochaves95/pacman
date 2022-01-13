@@ -2,13 +2,13 @@
 #include <allegro5/allegro_image.h>
 
 // Command to run
-// gcc -o app app.c -lallegro -lallegro_image -lallegro_dialog -lallegro_main
-// ./app
+// gcc -o Pacman main.c -lallegro -lallegro_image -lallegro_dialog -lallegro_main
+// ./Pacman
 
 ALLEGRO_BITMAP* load_bitmap_at_size(const char* file_name, int width, int height) {
-    ALLEGRO_BITMAP *resized_bitmap;
-    ALLEGRO_BITMAP *loaded_bitmap;
-    ALLEGRO_BITMAP *previous_target;
+    ALLEGRO_BITMAP* resized_bitmap;
+    ALLEGRO_BITMAP* loaded_bitmap;
+    ALLEGRO_BITMAP* previous_target;
 
     // Create a temporary bitmap of size we want
     resized_bitmap = al_create_bitmap(width, height);
