@@ -60,9 +60,8 @@ int main() {
     al_register_event_source(queue, al_get_display_event_source(display));
     al_init_image_addon();
 
-    //bitmap = al_load_bitmap("../img/fundo.bmp");
     bitmap = load_bitmap_at_size("../img/fundo.bmp", width * 2, height * 2);
-    //assert(bitmap != NULL);
+    assert(bitmap != NULL);
 
     float x = 0;
     int width = al_get_display_width(display);
