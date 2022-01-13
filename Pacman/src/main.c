@@ -1,105 +1,49 @@
 #include <allegro5/allegro.h>
-//#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_primitives.h>
+#include <allegro5/allegro_image.h>
 
 // Command to run
 // gcc -o app app.c -lallegro -lallegro_image -lallegro_dialog -lallegro_main
 // ./app
 
-//ALLEGRO_BITMAP *buffer;
-//ALLEGRO_BITMAP *itens;
-//ALLEGRO_BITMAP *fundo;
+ALLEGRO_BITMAP *load_bitmap_at_size(const char *filename, int w, int h) {
+    ALLEGRO_BITMAP *resized_bmp, *loaded_bmp, *prev_target;
 
-//int width = 1048;
-//int height = 670;
-//int done = 0;
+    // 1. create a temporary bitmap of size we want
+    resized_bmp = al_create_bitmap(w, h);
+    if (!resized_bmp) return NULL;
 
-//int main(void) {
-////    al_init();
-////
-////    al_create_display(width, height);
-////
-////    al_clear_to_color(al_map_rgb(255, 0, 255));
-////
-////    al_flip_display();
-////
-////    buffer = al_create_bitmap(width, height);
-////    fundo = al_load_bitmap("../img/fundo.bmp");
-//
-//    // Variables
-//    int width = 640;
-//    int height = 480;
-//    int done = 0;
-//    int imageRad = 20;
-//
-//    // Allegro variable
-//    ALLEGRO_DISPLAY *display = NULL;
-//    ALLEGRO_EVENT_QUEUE *event_queue = NULL;
-//    ALLEGRO_BITMAP *image = NULL;
-//
-//    // Program init
-//    if (!al_init())
-//    {
-//        return -1;
-//    }
-//
-//    display = al_create_display(width, height);
-//
-//    if (!display)
-//    {
-//        return -1;
-//    }
-//
-//    // Addon init
-//    al_install_keyboard();
-//    al_init_primitives_addon();
-//
-//    image = al_create_bitmap(imageRad * 2, imageRad * 2);
-//
-//    al_set_target_bitmap(image);
-//
-//    al_draw_filled_rectangle(imageRad, imageRad - 9, imageRad + 10, imageRad - 7, al_map_rgb(255, 0, 0));
-//    al_draw_filled_rectangle(imageRad, imageRad + 9, imageRad + 10, imageRad + 7, al_map_rgb(255, 0, 0));
-//
-//    al_draw_filled_triangle(imageRad - 12, imageRad - 17, imageRad + 12, imageRad, imageRad - 12, imageRad + 17, al_map_rgb(0, 255, 0));
-//    al_draw_filled_rectangle(imageRad - 12, imageRad - 2, imageRad + 15, imageRad + 2, al_map_rgb(0, 0, 255));
-//
-//    al_set_target_bitmap(al_get_backbuffer(display));
-//
-//    event_queue = al_create_event_queue();
-//    al_register_event_source(event_queue, al_get_keyboard_event_source());
-//
-//    while (!done) {
-//        ALLEGRO_EVENT event;
-//
-//        al_wait_for_event(event_queue, &event);
-//
-//        if (event.type == ALLEGRO_EVENT_KEY_DOWN)
-//        {
-//            switch (event.keyboard.keycode) {
-//                case ALLEGRO_KEY_ESCAPE:
-//                    done = 1;
-//                    break;
-//            }
-//        }
-//
-//        al_draw_bitmap(image, width / 2, height / 2, 0);
-//        al_flip_display();
-//        al_clear_to_color(al_map_rgb(0, 0, 0));
-//
-////        al_draw_bitmap(buffer, fundo, 5, 5);
-////        al_draw_pixel(640, 480, al_map_rgb(255, 0, 255));
-////        al_rest(5.0f);
-//    }
-//
-//    al_destroy_display(display);
-////    al_destroy_bitmap(buffer);
-////    al_destroy_bitmap(fundo);
-//    return 0;
-//}
+    // 2. load the bitmap at the original size
+    loaded_bmp = al_load_bitmap(filename);
+    if (!loaded_bmp)
+    {
+        al_destroy_bitmap(resized_bmp);
+        return NULL;
+    }
 
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
+    // 3. set the target bitmap to the resized bmp
+    prev_target = al_get_target_bitmap();
+    al_set_target_bitmap(resized_bmp);
+
+    // 4. copy the loaded bitmap to the resized bmp
+    al_draw_scaled_bitmap(loaded_bmp,
+                          0, 0,                                // source origin
+                          al_get_bitmap_width(loaded_bmp),     // source width
+                          al_get_bitmap_height(loaded_bmp),    // source height
+                          0, 0,                                // target origin
+                          w, h,                                // target dimensions
+                          0                                    // flags
+                          );
+
+    // 5. restore the previous target and clean up
+    al_set_target_bitmap(prev_target);
+    al_destroy_bitmap(loaded_bmp);
+
+    return resized_bmp;
+}
+
+int width = 677;
+int height = 665;
+int is_running = 1;
 
 int main() {
     ALLEGRO_DISPLAY * display;
@@ -107,23 +51,27 @@ int main() {
     ALLEGRO_BITMAP * bitmap = NULL;
     
     al_init();
-    display = al_create_display(677, 665);
+    display = al_create_display(width * 2, height * 2);
     
     queue = al_create_event_queue();
     al_install_keyboard();
     al_register_event_source(queue, al_get_keyboard_event_source());
     al_register_event_source(queue, al_get_display_event_source(display));
     al_init_image_addon();
-    bitmap = al_load_bitmap("../img/fundo.bmp");
-    assert(bitmap != NULL);
 
-    int running = 1;
+    //bitmap = al_load_bitmap("../img/fundo.bmp");
+    bitmap = load_bitmap_at_size("../img/fundo.bmp", width * 2, height * 2);
+    //assert(bitmap != NULL);
+
     float x = 0;
     int width = al_get_display_width(display);
     
-    while (running) {
+    while (is_running) {
         al_clear_to_color(al_map_rgba_f(1, 1, 1, 1));
         al_draw_bitmap(bitmap, 0, 0, 0);
+        
+        //al_draw_scaled_bitmap(bitmap, 0, 0, width * 2, height * 2, 0, 0, width * 2, height * 2, 0);
+        
         al_flip_display();
         if (x > width) {
             x = -al_get_bitmap_width(bitmap);
@@ -133,12 +81,15 @@ int main() {
         if (!al_is_event_queue_empty(queue)) {
             al_wait_for_event(queue, &event);
             if (event.type == ALLEGRO_EVENT_KEY_UP || event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-                running = 0;
+                is_running = 0;
             }
         }
     }
+
     al_destroy_display(display);
     al_uninstall_keyboard();
     al_destroy_bitmap(bitmap);
+    
+
     return 0;
 }
