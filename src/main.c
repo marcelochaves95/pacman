@@ -5,6 +5,88 @@
 // gcc -o Pacman main.c -lallegro -lallegro_image -lallegro_dialog -lallegro_main
 // ./Pacman
 
+// Objetos
+struct obj {
+    int wx;
+    int wy;
+    int x;
+    int y;
+    int w;
+    int h;
+    int dir;
+};
+
+struct obj p = { 42, 0, 13, 23, 42, 44, 2 };
+
+// Funções
+ALLEGRO_BITMAP* load_bitmap_at_size(const char* file_name, int width, int height);
+void sair();
+void mapa(int mod);
+
+// Variáveis globais
+int width = 677;
+int height = 665;
+int is_running = 1;
+
+const int LENGTH_X = 28;
+const int LENGTH_Y = 31;
+int map [LENGTH_Y][LENGTH_X];
+
+ALLEGRO_BITMAP* buffer = NULL;
+ALLEGRO_BITMAP* itens = NULL;
+ALLEGRO_BITMAP* fundo = NULL;
+
+int main() {
+    ALLEGRO_DISPLAY* display;
+    ALLEGRO_EVENT_QUEUE* event_queue;
+    ALLEGRO_BITMAP* background_bitmap = NULL;
+    
+    al_init();
+    display = al_create_display(width * 2, height * 2);
+    al_set_window_title(display, "Pacman");
+    
+    event_queue = al_create_event_queue();
+    al_install_keyboard();
+    al_register_event_source(event_queue, al_get_keyboard_event_source());
+    al_register_event_source(event_queue, al_get_display_event_source(display));
+    al_init_image_addon();
+
+    background_bitmap = load_bitmap_at_size("../img/background.bmp", width * 2, height * 2);
+    assert(background_bitmap != NULL);
+
+    float x = 0;
+    int width = al_get_display_width(display);
+    
+    mapa(1);
+    while (is_running) {
+        al_clear_to_color(al_map_rgba_f(1, 1, 1, 1));
+        al_draw_bitmap(background_bitmap, 0, 0, 0);
+        al_flip_display();
+
+        mapa(0);
+        if (x > width) {
+            x = -al_get_bitmap_width(background_bitmap);
+        }
+
+        if (!al_is_event_queue_empty(event_queue)) {
+            ALLEGRO_EVENT event;
+            al_wait_for_event(event_queue, &event);
+
+            if (event.type == ALLEGRO_EVENT_KEY_UP || event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+                is_running = 0;
+            }
+        }
+    }
+
+    al_destroy_display(display);
+    al_uninstall_keyboard();
+    al_destroy_bitmap(background_bitmap);
+
+    return 0;
+}
+
+END_OF_MAIN();
+
 ALLEGRO_BITMAP* load_bitmap_at_size(const char* file_name, int width, int height) {
     ALLEGRO_BITMAP* resized_bitmap;
     ALLEGRO_BITMAP* loaded_bitmap;
@@ -42,53 +124,61 @@ ALLEGRO_BITMAP* load_bitmap_at_size(const char* file_name, int width, int height
     return resized_bitmap;
 }
 
-int width = 677;
-int height = 665;
-int is_running = 1;
+void mapa(int mod) {
+    int i, j;
 
-int main() {
-    ALLEGRO_DISPLAY* display;
-    ALLEGRO_EVENT_QUEUE* queue;
-    ALLEGRO_BITMAP* bitmap = NULL;
-    
-    al_init();
-    display = al_create_display(width * 2, height * 2);
-    
-    queue = al_create_event_queue();
-    al_install_keyboard();
-    al_register_event_source(queue, al_get_keyboard_event_source());
-    al_register_event_source(queue, al_get_display_event_source(display));
-    al_init_image_addon();
+    char mp[LENGTH_Y][LENGTH_X] = {
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, },
+        { 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+        { 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, },
+        { 1, 3, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 3, 1, },
+        { 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, },
+        { 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+        { 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, },
+        { 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, },
+        { 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, },
+        { 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+        { 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, },
+        { 1, 3, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 3, 1, },
+        { 1, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 1, },
+        { 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, },
+        { 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, },
+        { 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 1, },
+        { 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, },
+        { 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, },
+        { 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, },
+        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, }
+    };
 
-    bitmap = load_bitmap_at_size("../img/fundo.bmp", width * 2, height * 2);
-    assert(bitmap != NULL);
+    for (int i = 0; i < LENGTH_Y; i++) {
+        for (int j = 0; j < LENGTH_X; j++) {
+            if (mod) {
+                map[i][j] = mp[i][j];
+            }
 
-    float x = 0;
-    int width = al_get_display_width(display);
-    
-    while (is_running) {
-        al_clear_to_color(al_map_rgba_f(1, 1, 1, 1));
-        al_draw_bitmap(bitmap, 0, 0, 0);
-        
-        //al_draw_scaled_bitmap(bitmap, 0, 0, width * 2, height * 2, 0, 0, width * 2, height * 2, 0);
-        
-        al_flip_display();
-        if (x > width) {
-            x = -al_get_bitmap_width(bitmap);
-        }
-        
-        ALLEGRO_EVENT event;
-        if (!al_is_event_queue_empty(queue)) {
-            al_wait_for_event(queue, &event);
-            if (event.type == ALLEGRO_EVENT_KEY_UP || event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-                is_running = 0;
+            if (map[i][j] == 2)
+            {
+                // Pontos
+                masked_blit(itens, buffer, 3, 10, j * LENGTH_X + 10, 21 + 16, 6, 6);
             }
         }
     }
-
-    al_destroy_display(display);
-    al_uninstall_keyboard();
-    al_destroy_bitmap(bitmap);
-
-    return 0;
+    
 }
+
+void sair() {
+    is_running = 0;
+}
+
+END_OF_FUNCTION(sair);
