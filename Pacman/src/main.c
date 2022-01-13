@@ -10,32 +10,32 @@ ALLEGRO_BITMAP* load_bitmap_at_size(const char* file_name, int width, int height
     ALLEGRO_BITMAP *loaded_bitmap;
     ALLEGRO_BITMAP *previous_target;
 
-    // 1. create a temporary bitmap of size we want
+    // Create a temporary bitmap of size we want
     resized_bitmap = al_create_bitmap(width, height);
     if (!resized_bitmap) return NULL;
 
-    // 2. load the bitmap at the original size
+    // Load the bitmap at the original size
     loaded_bitmap = al_load_bitmap(file_name);
     if (!loaded_bitmap) {
         al_destroy_bitmap(resized_bitmap);
         return NULL;
     }
 
-    // 3. set the target bitmap to the resized bmp
+    // Set the target bitmap to the resized bmp
     previous_target = al_get_target_bitmap();
     al_set_target_bitmap(resized_bitmap);
 
-    // 4. copy the loaded bitmap to the resized bmp
+    // Copy the loaded bitmap to the resized bmp
     al_draw_scaled_bitmap(loaded_bitmap,
         0, 0,                                // source origin
-        al_get_bitmap_width(loaded_bitmap),     // source width
-        al_get_bitmap_height(loaded_bitmap),    // source height
+        al_get_bitmap_width(loaded_bitmap),  // source width
+        al_get_bitmap_height(loaded_bitmap), // source height
         0, 0,                                // target origin
-        width, height,                                // target dimensions
+        width, height,                       // target dimensions
         0                                    // flags
     );
 
-    // 5. restore the previous target and clean up
+    // Restore the previous target and clean up
     al_set_target_bitmap(previous_target);
     al_destroy_bitmap(loaded_bitmap);
 
