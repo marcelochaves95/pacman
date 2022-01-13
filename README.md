@@ -1,3 +1,3 @@
 # Pacman
 
-![](files/game.png)
+![](img/background.bmp)
