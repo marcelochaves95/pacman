@@ -7,137 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC51993E278FD8470039E0D4 /* app.c in Sources */ = {isa = PBXBuildFile; fileRef = FC51993D278FD8470039E0D4 /* app.c */; };
-		FCD504BE278FE09F00F90060 /* liballegro.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD50497278FE09F00F90060 /* liballegro.dylib */; };
-		FCD504BF278FE09F00F90060 /* liballegro.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD50497278FE09F00F90060 /* liballegro.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504C0278FE09F00F90060 /* liballegro_acodec.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD50498278FE09F00F90060 /* liballegro_acodec.5.2.dylib */; };
-		FCD504C1278FE09F00F90060 /* liballegro_acodec.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD50498278FE09F00F90060 /* liballegro_acodec.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504C2278FE09F00F90060 /* liballegro_main.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD50499278FE09F00F90060 /* liballegro_main.dylib */; };
-		FCD504C3278FE09F00F90060 /* liballegro_main.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD50499278FE09F00F90060 /* liballegro_main.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504C4278FE09F00F90060 /* liballegro_ttf.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049A278FE09F00F90060 /* liballegro_ttf.5.2.7.dylib */; };
-		FCD504C5278FE09F00F90060 /* liballegro_ttf.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD5049A278FE09F00F90060 /* liballegro_ttf.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504C6278FE09F00F90060 /* liballegro_dialog.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049B278FE09F00F90060 /* liballegro_dialog.5.2.dylib */; };
-		FCD504C7278FE09F00F90060 /* liballegro_dialog.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD5049B278FE09F00F90060 /* liballegro_dialog.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504C8278FE09F00F90060 /* liballegro_memfile.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049C278FE09F00F90060 /* liballegro_memfile.5.2.dylib */; };
-		FCD504C9278FE09F00F90060 /* liballegro_memfile.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD5049C278FE09F00F90060 /* liballegro_memfile.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504CA278FE09F00F90060 /* liballegro_audio.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049D278FE09F00F90060 /* liballegro_audio.5.2.7.dylib */; };
-		FCD504CB278FE09F00F90060 /* liballegro_audio.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD5049D278FE09F00F90060 /* liballegro_audio.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504CC278FE09F00F90060 /* liballegro_audio.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049E278FE09F00F90060 /* liballegro_audio.dylib */; };
-		FCD504CD278FE0A000F90060 /* liballegro_audio.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD5049E278FE09F00F90060 /* liballegro_audio.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504CE278FE0A000F90060 /* liballegro_ttf.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049F278FE09F00F90060 /* liballegro_ttf.5.2.dylib */; };
-		FCD504CF278FE0A000F90060 /* liballegro_ttf.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD5049F278FE09F00F90060 /* liballegro_ttf.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504D0278FE0A000F90060 /* liballegro_color.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A0278FE09F00F90060 /* liballegro_color.dylib */; };
-		FCD504D1278FE0A000F90060 /* liballegro_color.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A0278FE09F00F90060 /* liballegro_color.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504D2278FE0A000F90060 /* liballegro_primitives.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A1278FE09F00F90060 /* liballegro_primitives.5.2.7.dylib */; };
-		FCD504D3278FE0A000F90060 /* liballegro_primitives.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A1278FE09F00F90060 /* liballegro_primitives.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504D4278FE0A000F90060 /* liballegro_video.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A2278FE09F00F90060 /* liballegro_video.5.2.7.dylib */; };
-		FCD504D5278FE0A000F90060 /* liballegro_video.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A2278FE09F00F90060 /* liballegro_video.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504D6278FE0A000F90060 /* liballegro.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A3278FE09F00F90060 /* liballegro.5.2.7.dylib */; };
-		FCD504D7278FE0A000F90060 /* liballegro.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A3278FE09F00F90060 /* liballegro.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504D8278FE0A000F90060 /* liballegro_video.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A4278FE09F00F90060 /* liballegro_video.dylib */; };
-		FCD504D9278FE0A000F90060 /* liballegro_video.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A4278FE09F00F90060 /* liballegro_video.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504DA278FE0A000F90060 /* liballegro_color.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A5278FE09F00F90060 /* liballegro_color.5.2.7.dylib */; };
-		FCD504DB278FE0A000F90060 /* liballegro_color.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A5278FE09F00F90060 /* liballegro_color.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504DC278FE0A000F90060 /* liballegro_image.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A6278FE09F00F90060 /* liballegro_image.5.2.dylib */; };
-		FCD504DD278FE0A000F90060 /* liballegro_image.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A6278FE09F00F90060 /* liballegro_image.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504DE278FE0A000F90060 /* liballegro_font.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A7278FE09F00F90060 /* liballegro_font.5.2.7.dylib */; };
-		FCD504DF278FE0A000F90060 /* liballegro_font.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A7278FE09F00F90060 /* liballegro_font.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504E0278FE0A000F90060 /* liballegro_physfs.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A8278FE09F00F90060 /* liballegro_physfs.5.2.7.dylib */; };
-		FCD504E1278FE0A000F90060 /* liballegro_physfs.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A8278FE09F00F90060 /* liballegro_physfs.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504E2278FE0A000F90060 /* liballegro_dialog.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A9278FE09F00F90060 /* liballegro_dialog.5.2.7.dylib */; };
-		FCD504E3278FE0A000F90060 /* liballegro_dialog.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504A9278FE09F00F90060 /* liballegro_dialog.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504E4278FE0A000F90060 /* liballegro_acodec.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AA278FE09F00F90060 /* liballegro_acodec.dylib */; };
-		FCD504E5278FE0A000F90060 /* liballegro_acodec.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504AA278FE09F00F90060 /* liballegro_acodec.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504E6278FE0A000F90060 /* liballegro_memfile.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AB278FE09F00F90060 /* liballegro_memfile.dylib */; };
-		FCD504E7278FE0A000F90060 /* liballegro_memfile.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504AB278FE09F00F90060 /* liballegro_memfile.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504E8278FE0A000F90060 /* liballegro_color.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AC278FE09F00F90060 /* liballegro_color.5.2.dylib */; };
-		FCD504E9278FE0A000F90060 /* liballegro_color.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504AC278FE09F00F90060 /* liballegro_color.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504EA278FE0A000F90060 /* liballegro_physfs.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AD278FE09F00F90060 /* liballegro_physfs.5.2.dylib */; };
-		FCD504EB278FE0A000F90060 /* liballegro_physfs.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504AD278FE09F00F90060 /* liballegro_physfs.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504EC278FE0A000F90060 /* liballegro_memfile.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AE278FE09F00F90060 /* liballegro_memfile.5.2.7.dylib */; };
-		FCD504ED278FE0A000F90060 /* liballegro_memfile.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504AE278FE09F00F90060 /* liballegro_memfile.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504EE278FE0A000F90060 /* liballegro_acodec.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AF278FE09F00F90060 /* liballegro_acodec.5.2.7.dylib */; };
-		FCD504EF278FE0A000F90060 /* liballegro_acodec.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504AF278FE09F00F90060 /* liballegro_acodec.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504F0278FE0A000F90060 /* liballegro_primitives.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B0278FE09F00F90060 /* liballegro_primitives.5.2.dylib */; };
-		FCD504F1278FE0A000F90060 /* liballegro_primitives.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B0278FE09F00F90060 /* liballegro_primitives.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504F2278FE0A000F90060 /* liballegro_font.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B1278FE09F00F90060 /* liballegro_font.5.2.dylib */; };
-		FCD504F3278FE0A000F90060 /* liballegro_font.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B1278FE09F00F90060 /* liballegro_font.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504F4278FE0A000F90060 /* liballegro_video.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B2278FE09F00F90060 /* liballegro_video.5.2.dylib */; };
-		FCD504F5278FE0A000F90060 /* liballegro_video.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B2278FE09F00F90060 /* liballegro_video.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504F6278FE0A000F90060 /* liballegro_main.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B3278FE09F00F90060 /* liballegro_main.5.2.7.dylib */; };
-		FCD504F7278FE0A000F90060 /* liballegro_main.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B3278FE09F00F90060 /* liballegro_main.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504F8278FE0A000F90060 /* liballegro_main.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B4278FE09F00F90060 /* liballegro_main.5.2.dylib */; };
-		FCD504F9278FE0A000F90060 /* liballegro_main.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B4278FE09F00F90060 /* liballegro_main.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504FA278FE0A000F90060 /* liballegro.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B5278FE09F00F90060 /* liballegro.5.2.dylib */; };
-		FCD504FB278FE0A100F90060 /* liballegro.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B5278FE09F00F90060 /* liballegro.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504FC278FE0A100F90060 /* liballegro_ttf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B6278FE09F00F90060 /* liballegro_ttf.dylib */; };
-		FCD504FD278FE0A100F90060 /* liballegro_ttf.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B6278FE09F00F90060 /* liballegro_ttf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD504FE278FE0A100F90060 /* liballegro_image.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B7278FE09F00F90060 /* liballegro_image.5.2.7.dylib */; };
-		FCD504FF278FE0A100F90060 /* liballegro_image.5.2.7.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B7278FE09F00F90060 /* liballegro_image.5.2.7.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD50500278FE0A100F90060 /* liballegro_dialog.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B8278FE09F00F90060 /* liballegro_dialog.dylib */; };
-		FCD50501278FE0A100F90060 /* liballegro_dialog.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B8278FE09F00F90060 /* liballegro_dialog.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD50502278FE0A100F90060 /* liballegro_audio.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B9278FE09F00F90060 /* liballegro_audio.5.2.dylib */; };
-		FCD50503278FE0A100F90060 /* liballegro_audio.5.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504B9278FE09F00F90060 /* liballegro_audio.5.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD50504278FE0A100F90060 /* liballegro_physfs.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BA278FE09F00F90060 /* liballegro_physfs.dylib */; };
-		FCD50505278FE0A100F90060 /* liballegro_physfs.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504BA278FE09F00F90060 /* liballegro_physfs.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD50506278FE0A100F90060 /* liballegro_primitives.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BB278FE09F00F90060 /* liballegro_primitives.dylib */; };
-		FCD50507278FE0A100F90060 /* liballegro_primitives.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504BB278FE09F00F90060 /* liballegro_primitives.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD50508278FE0A100F90060 /* liballegro_font.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BC278FE09F00F90060 /* liballegro_font.dylib */; };
-		FCD50509278FE0A100F90060 /* liballegro_font.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504BC278FE09F00F90060 /* liballegro_font.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		FCD5050A278FE0A100F90060 /* liballegro_image.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BD278FE09F00F90060 /* liballegro_image.dylib */; };
-		FCD5050B278FE0A100F90060 /* liballegro_image.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = FCD504BD278FE09F00F90060 /* liballegro_image.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		FC063F66278FF84E00B7D418 /* liballegro_acodec.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD50498278FE09F00F90060 /* liballegro_acodec.5.2.dylib */; };
+		FC063F68278FF84E00B7D418 /* liballegro_acodec.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AA278FE09F00F90060 /* liballegro_acodec.dylib */; };
+		FC063F6A278FF84E00B7D418 /* liballegro_audio.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B9278FE09F00F90060 /* liballegro_audio.5.2.dylib */; };
+		FC063F6C278FF84E00B7D418 /* liballegro_audio.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049E278FE09F00F90060 /* liballegro_audio.dylib */; };
+		FC063F6E278FF84E00B7D418 /* liballegro_color.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AC278FE09F00F90060 /* liballegro_color.5.2.dylib */; };
+		FC063F70278FF84E00B7D418 /* liballegro_color.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A0278FE09F00F90060 /* liballegro_color.dylib */; };
+		FC063F72278FF84E00B7D418 /* liballegro_dialog.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049B278FE09F00F90060 /* liballegro_dialog.5.2.dylib */; };
+		FC063F74278FF84E00B7D418 /* liballegro_dialog.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B8278FE09F00F90060 /* liballegro_dialog.dylib */; };
+		FC063F76278FF84E00B7D418 /* liballegro_font.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B1278FE09F00F90060 /* liballegro_font.5.2.dylib */; };
+		FC063F78278FF84E00B7D418 /* liballegro_font.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BC278FE09F00F90060 /* liballegro_font.dylib */; };
+		FC063F7A278FF84E00B7D418 /* liballegro_image.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A6278FE09F00F90060 /* liballegro_image.5.2.dylib */; };
+		FC063F7C278FF84E00B7D418 /* liballegro_image.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BD278FE09F00F90060 /* liballegro_image.dylib */; };
+		FC063F7E278FF84E00B7D418 /* liballegro_main.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B4278FE09F00F90060 /* liballegro_main.5.2.dylib */; };
+		FC063F80278FF84E00B7D418 /* liballegro_main.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD50499278FE09F00F90060 /* liballegro_main.dylib */; };
+		FC063F82278FF84E00B7D418 /* liballegro_memfile.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049C278FE09F00F90060 /* liballegro_memfile.5.2.dylib */; };
+		FC063F84278FF84E00B7D418 /* liballegro_memfile.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AB278FE09F00F90060 /* liballegro_memfile.dylib */; };
+		FC063F86278FF84E00B7D418 /* liballegro_physfs.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AD278FE09F00F90060 /* liballegro_physfs.5.2.dylib */; };
+		FC063F88278FF84E00B7D418 /* liballegro_physfs.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BA278FE09F00F90060 /* liballegro_physfs.dylib */; };
+		FC063F8A278FF84E00B7D418 /* liballegro_primitives.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B0278FE09F00F90060 /* liballegro_primitives.5.2.dylib */; };
+		FC063F8C278FF84E00B7D418 /* liballegro_primitives.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504BB278FE09F00F90060 /* liballegro_primitives.dylib */; };
+		FC063F8E278FF84E00B7D418 /* liballegro_ttf.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049F278FE09F00F90060 /* liballegro_ttf.5.2.dylib */; };
+		FC063F90278FF84E00B7D418 /* liballegro_ttf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B6278FE09F00F90060 /* liballegro_ttf.dylib */; };
+		FC063F92278FF84F00B7D418 /* liballegro_video.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B2278FE09F00F90060 /* liballegro_video.5.2.dylib */; };
+		FC063F94278FF84F00B7D418 /* liballegro_video.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A4278FE09F00F90060 /* liballegro_video.dylib */; };
+		FC063F96278FF84F00B7D418 /* liballegro.5.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B5278FE09F00F90060 /* liballegro.5.2.dylib */; };
+		FC063F98278FF84F00B7D418 /* liballegro.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD50497278FE09F00F90060 /* liballegro.dylib */; };
+		FC063F9A278FF84F00B7D418 /* liballegro.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A3278FE09F00F90060 /* liballegro.5.2.7.dylib */; };
+		FC063F9C278FF84F00B7D418 /* liballegro_acodec.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AF278FE09F00F90060 /* liballegro_acodec.5.2.7.dylib */; };
+		FC063F9E278FF84F00B7D418 /* liballegro_audio.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049D278FE09F00F90060 /* liballegro_audio.5.2.7.dylib */; };
+		FC063FA0278FF84F00B7D418 /* liballegro_color.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A5278FE09F00F90060 /* liballegro_color.5.2.7.dylib */; };
+		FC063FA2278FF84F00B7D418 /* liballegro_dialog.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A9278FE09F00F90060 /* liballegro_dialog.5.2.7.dylib */; };
+		FC063FA4278FF84F00B7D418 /* liballegro_font.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A7278FE09F00F90060 /* liballegro_font.5.2.7.dylib */; };
+		FC063FA6278FF84F00B7D418 /* liballegro_image.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B7278FE09F00F90060 /* liballegro_image.5.2.7.dylib */; };
+		FC063FA8278FF84F00B7D418 /* liballegro_main.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504B3278FE09F00F90060 /* liballegro_main.5.2.7.dylib */; };
+		FC063FAA278FF84F00B7D418 /* liballegro_memfile.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504AE278FE09F00F90060 /* liballegro_memfile.5.2.7.dylib */; };
+		FC063FAC278FF84F00B7D418 /* liballegro_physfs.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A8278FE09F00F90060 /* liballegro_physfs.5.2.7.dylib */; };
+		FC063FAE278FF85000B7D418 /* liballegro_primitives.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A1278FE09F00F90060 /* liballegro_primitives.5.2.7.dylib */; };
+		FC063FB0278FF85000B7D418 /* liballegro_ttf.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD5049A278FE09F00F90060 /* liballegro_ttf.5.2.7.dylib */; };
+		FC063FB2278FF85000B7D418 /* liballegro_video.5.2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FCD504A2278FE09F00F90060 /* liballegro_video.5.2.7.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FC5199B5278FD8A50039E0D4 /* Embed Libraries */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FCD504FD278FE0A100F90060 /* liballegro_ttf.dylib in Embed Libraries */,
-				FCD504BF278FE09F00F90060 /* liballegro.dylib in Embed Libraries */,
-				FCD504D3278FE0A000F90060 /* liballegro_primitives.5.2.7.dylib in Embed Libraries */,
-				FCD5050B278FE0A100F90060 /* liballegro_image.dylib in Embed Libraries */,
-				FCD504E1278FE0A000F90060 /* liballegro_physfs.5.2.7.dylib in Embed Libraries */,
-				FCD504DB278FE0A000F90060 /* liballegro_color.5.2.7.dylib in Embed Libraries */,
-				FCD504E7278FE0A000F90060 /* liballegro_memfile.dylib in Embed Libraries */,
-				FCD504CB278FE09F00F90060 /* liballegro_audio.5.2.7.dylib in Embed Libraries */,
-				FCD504EB278FE0A000F90060 /* liballegro_physfs.5.2.dylib in Embed Libraries */,
-				FCD50503278FE0A100F90060 /* liballegro_audio.5.2.dylib in Embed Libraries */,
-				FCD504FB278FE0A100F90060 /* liballegro.5.2.dylib in Embed Libraries */,
-				FCD50505278FE0A100F90060 /* liballegro_physfs.dylib in Embed Libraries */,
-				FCD504F9278FE0A000F90060 /* liballegro_main.5.2.dylib in Embed Libraries */,
-				FCD504E3278FE0A000F90060 /* liballegro_dialog.5.2.7.dylib in Embed Libraries */,
-				FCD504C7278FE09F00F90060 /* liballegro_dialog.5.2.dylib in Embed Libraries */,
-				FCD504D1278FE0A000F90060 /* liballegro_color.dylib in Embed Libraries */,
-				FCD504F5278FE0A000F90060 /* liballegro_video.5.2.dylib in Embed Libraries */,
-				FCD504D5278FE0A000F90060 /* liballegro_video.5.2.7.dylib in Embed Libraries */,
-				FCD504DF278FE0A000F90060 /* liballegro_font.5.2.7.dylib in Embed Libraries */,
-				FCD504C1278FE09F00F90060 /* liballegro_acodec.5.2.dylib in Embed Libraries */,
-				FCD504E9278FE0A000F90060 /* liballegro_color.5.2.dylib in Embed Libraries */,
-				FCD504C5278FE09F00F90060 /* liballegro_ttf.5.2.7.dylib in Embed Libraries */,
-				FCD504FF278FE0A100F90060 /* liballegro_image.5.2.7.dylib in Embed Libraries */,
-				FCD504E5278FE0A000F90060 /* liballegro_acodec.dylib in Embed Libraries */,
-				FCD504C9278FE09F00F90060 /* liballegro_memfile.5.2.dylib in Embed Libraries */,
-				FCD50507278FE0A100F90060 /* liballegro_primitives.dylib in Embed Libraries */,
-				FCD504CF278FE0A000F90060 /* liballegro_ttf.5.2.dylib in Embed Libraries */,
-				FCD504CD278FE0A000F90060 /* liballegro_audio.dylib in Embed Libraries */,
-				FCD504ED278FE0A000F90060 /* liballegro_memfile.5.2.7.dylib in Embed Libraries */,
-				FCD504D9278FE0A000F90060 /* liballegro_video.dylib in Embed Libraries */,
-				FCD504F7278FE0A000F90060 /* liballegro_main.5.2.7.dylib in Embed Libraries */,
-				FCD504D7278FE0A000F90060 /* liballegro.5.2.7.dylib in Embed Libraries */,
-				FCD504DD278FE0A000F90060 /* liballegro_image.5.2.dylib in Embed Libraries */,
-				FCD50509278FE0A100F90060 /* liballegro_font.dylib in Embed Libraries */,
-				FCD504F3278FE0A000F90060 /* liballegro_font.5.2.dylib in Embed Libraries */,
-				FCD504EF278FE0A000F90060 /* liballegro_acodec.5.2.7.dylib in Embed Libraries */,
-				FCD50501278FE0A100F90060 /* liballegro_dialog.dylib in Embed Libraries */,
-				FCD504F1278FE0A000F90060 /* liballegro_primitives.5.2.dylib in Embed Libraries */,
-				FCD504C3278FE09F00F90060 /* liballegro_main.dylib in Embed Libraries */,
-			);
-			name = "Embed Libraries";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FCBDE360278FCC0500FE087C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,8 +61,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC063F65278FF78C00B7D418 /* fundo.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = fundo.bmp; sourceTree = "<group>"; };
 		FC51993C278FD8470039E0D4 /* Supporting Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Supporting Files"; sourceTree = "<group>"; };
-		FC51993D278FD8470039E0D4 /* app.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = app.c; sourceTree = "<group>"; };
 		FCBDE362278FCC0500FE087C /* Pacman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pacman; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCD50497278FE09F00F90060 /* liballegro.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro.dylib; path = ../../../../usr/local/Cellar/allegro/5.2.7.0/lib/liballegro.dylib; sourceTree = "<group>"; };
 		FCD50498278FE09F00F90060 /* liballegro_acodec.5.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_acodec.5.2.dylib; path = ../../../../usr/local/Cellar/allegro/5.2.7.0/lib/liballegro_acodec.5.2.dylib; sourceTree = "<group>"; };
@@ -192,6 +103,7 @@
 		FCD504BB278FE09F00F90060 /* liballegro_primitives.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_primitives.dylib; path = ../../../../usr/local/Cellar/allegro/5.2.7.0/lib/liballegro_primitives.dylib; sourceTree = "<group>"; };
 		FCD504BC278FE09F00F90060 /* liballegro_font.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_font.dylib; path = ../../../../usr/local/Cellar/allegro/5.2.7.0/lib/liballegro_font.dylib; sourceTree = "<group>"; };
 		FCD504BD278FE09F00F90060 /* liballegro_image.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liballegro_image.dylib; path = ../../../../usr/local/Cellar/allegro/5.2.7.0/lib/liballegro_image.dylib; sourceTree = "<group>"; };
+		FCD5055A278FE4FE00F90060 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,45 +111,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCD504FC278FE0A100F90060 /* liballegro_ttf.dylib in Frameworks */,
-				FCD504BE278FE09F00F90060 /* liballegro.dylib in Frameworks */,
-				FCD504D2278FE0A000F90060 /* liballegro_primitives.5.2.7.dylib in Frameworks */,
-				FCD5050A278FE0A100F90060 /* liballegro_image.dylib in Frameworks */,
-				FCD504E0278FE0A000F90060 /* liballegro_physfs.5.2.7.dylib in Frameworks */,
-				FCD504DA278FE0A000F90060 /* liballegro_color.5.2.7.dylib in Frameworks */,
-				FCD504E6278FE0A000F90060 /* liballegro_memfile.dylib in Frameworks */,
-				FCD504CA278FE09F00F90060 /* liballegro_audio.5.2.7.dylib in Frameworks */,
-				FCD504EA278FE0A000F90060 /* liballegro_physfs.5.2.dylib in Frameworks */,
-				FCD50502278FE0A100F90060 /* liballegro_audio.5.2.dylib in Frameworks */,
-				FCD504FA278FE0A000F90060 /* liballegro.5.2.dylib in Frameworks */,
-				FCD50504278FE0A100F90060 /* liballegro_physfs.dylib in Frameworks */,
-				FCD504F8278FE0A000F90060 /* liballegro_main.5.2.dylib in Frameworks */,
-				FCD504E2278FE0A000F90060 /* liballegro_dialog.5.2.7.dylib in Frameworks */,
-				FCD504C6278FE09F00F90060 /* liballegro_dialog.5.2.dylib in Frameworks */,
-				FCD504D0278FE0A000F90060 /* liballegro_color.dylib in Frameworks */,
-				FCD504F4278FE0A000F90060 /* liballegro_video.5.2.dylib in Frameworks */,
-				FCD504D4278FE0A000F90060 /* liballegro_video.5.2.7.dylib in Frameworks */,
-				FCD504DE278FE0A000F90060 /* liballegro_font.5.2.7.dylib in Frameworks */,
-				FCD504C0278FE09F00F90060 /* liballegro_acodec.5.2.dylib in Frameworks */,
-				FCD504E8278FE0A000F90060 /* liballegro_color.5.2.dylib in Frameworks */,
-				FCD504C4278FE09F00F90060 /* liballegro_ttf.5.2.7.dylib in Frameworks */,
-				FCD504FE278FE0A100F90060 /* liballegro_image.5.2.7.dylib in Frameworks */,
-				FCD504E4278FE0A000F90060 /* liballegro_acodec.dylib in Frameworks */,
-				FCD504C8278FE09F00F90060 /* liballegro_memfile.5.2.dylib in Frameworks */,
-				FCD50506278FE0A100F90060 /* liballegro_primitives.dylib in Frameworks */,
-				FCD504CE278FE0A000F90060 /* liballegro_ttf.5.2.dylib in Frameworks */,
-				FCD504CC278FE09F00F90060 /* liballegro_audio.dylib in Frameworks */,
-				FCD504EC278FE0A000F90060 /* liballegro_memfile.5.2.7.dylib in Frameworks */,
-				FCD504D8278FE0A000F90060 /* liballegro_video.dylib in Frameworks */,
-				FCD504F6278FE0A000F90060 /* liballegro_main.5.2.7.dylib in Frameworks */,
-				FCD504D6278FE0A000F90060 /* liballegro.5.2.7.dylib in Frameworks */,
-				FCD504DC278FE0A000F90060 /* liballegro_image.5.2.dylib in Frameworks */,
-				FCD50508278FE0A100F90060 /* liballegro_font.dylib in Frameworks */,
-				FCD504F2278FE0A000F90060 /* liballegro_font.5.2.dylib in Frameworks */,
-				FCD504EE278FE0A000F90060 /* liballegro_acodec.5.2.7.dylib in Frameworks */,
-				FCD50500278FE0A100F90060 /* liballegro_dialog.dylib in Frameworks */,
-				FCD504F0278FE0A000F90060 /* liballegro_primitives.5.2.dylib in Frameworks */,
-				FCD504C2278FE09F00F90060 /* liballegro_main.dylib in Frameworks */,
+				FC063F72278FF84E00B7D418 /* liballegro_dialog.5.2.dylib in Frameworks */,
+				FC063F82278FF84E00B7D418 /* liballegro_memfile.5.2.dylib in Frameworks */,
+				FC063FA8278FF84F00B7D418 /* liballegro_main.5.2.7.dylib in Frameworks */,
+				FC063F68278FF84E00B7D418 /* liballegro_acodec.dylib in Frameworks */,
+				FC063F70278FF84E00B7D418 /* liballegro_color.dylib in Frameworks */,
+				FC063F7C278FF84E00B7D418 /* liballegro_image.dylib in Frameworks */,
+				FC063F9A278FF84F00B7D418 /* liballegro.5.2.7.dylib in Frameworks */,
+				FC063F9C278FF84F00B7D418 /* liballegro_acodec.5.2.7.dylib in Frameworks */,
+				FC063F84278FF84E00B7D418 /* liballegro_memfile.dylib in Frameworks */,
+				FC063F86278FF84E00B7D418 /* liballegro_physfs.5.2.dylib in Frameworks */,
+				FC063F80278FF84E00B7D418 /* liballegro_main.dylib in Frameworks */,
+				FC063FA2278FF84F00B7D418 /* liballegro_dialog.5.2.7.dylib in Frameworks */,
+				FC063F6A278FF84E00B7D418 /* liballegro_audio.5.2.dylib in Frameworks */,
+				FC063F7A278FF84E00B7D418 /* liballegro_image.5.2.dylib in Frameworks */,
+				FC063F88278FF84E00B7D418 /* liballegro_physfs.dylib in Frameworks */,
+				FC063F98278FF84F00B7D418 /* liballegro.dylib in Frameworks */,
+				FC063F7E278FF84E00B7D418 /* liballegro_main.5.2.dylib in Frameworks */,
+				FC063FAA278FF84F00B7D418 /* liballegro_memfile.5.2.7.dylib in Frameworks */,
+				FC063F78278FF84E00B7D418 /* liballegro_font.dylib in Frameworks */,
+				FC063F6C278FF84E00B7D418 /* liballegro_audio.dylib in Frameworks */,
+				FC063FB0278FF85000B7D418 /* liballegro_ttf.5.2.7.dylib in Frameworks */,
+				FC063FAC278FF84F00B7D418 /* liballegro_physfs.5.2.7.dylib in Frameworks */,
+				FC063FAE278FF85000B7D418 /* liballegro_primitives.5.2.7.dylib in Frameworks */,
+				FC063FA0278FF84F00B7D418 /* liballegro_color.5.2.7.dylib in Frameworks */,
+				FC063FA6278FF84F00B7D418 /* liballegro_image.5.2.7.dylib in Frameworks */,
+				FC063F96278FF84F00B7D418 /* liballegro.5.2.dylib in Frameworks */,
+				FC063F92278FF84F00B7D418 /* liballegro_video.5.2.dylib in Frameworks */,
+				FC063F76278FF84E00B7D418 /* liballegro_font.5.2.dylib in Frameworks */,
+				FC063F8E278FF84E00B7D418 /* liballegro_ttf.5.2.dylib in Frameworks */,
+				FC063F8A278FF84E00B7D418 /* liballegro_primitives.5.2.dylib in Frameworks */,
+				FC063FA4278FF84F00B7D418 /* liballegro_font.5.2.7.dylib in Frameworks */,
+				FC063F74278FF84E00B7D418 /* liballegro_dialog.dylib in Frameworks */,
+				FC063FB2278FF85000B7D418 /* liballegro_video.5.2.7.dylib in Frameworks */,
+				FC063F9E278FF84F00B7D418 /* liballegro_audio.5.2.7.dylib in Frameworks */,
+				FC063F94278FF84F00B7D418 /* liballegro_video.dylib in Frameworks */,
+				FC063F8C278FF84E00B7D418 /* liballegro_primitives.dylib in Frameworks */,
+				FC063F6E278FF84E00B7D418 /* liballegro_color.5.2.dylib in Frameworks */,
+				FC063F90278FF84E00B7D418 /* liballegro_ttf.dylib in Frameworks */,
+				FC063F66278FF84E00B7D418 /* liballegro_acodec.5.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,10 +222,19 @@
 		FCBDE364278FCC0500FE087C /* Pacman */ = {
 			isa = PBXGroup;
 			children = (
-				FC51993D278FD8470039E0D4 /* app.c */,
+				FCD5055B278FF63200F90060 /* img */,
+				FCD5055A278FE4FE00F90060 /* src */,
 				FC51993C278FD8470039E0D4 /* Supporting Files */,
 			);
 			path = Pacman;
+			sourceTree = "<group>";
+		};
+		FCD5055B278FF63200F90060 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				FC063F65278FF78C00B7D418 /* fundo.bmp */,
+			);
+			path = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +247,6 @@
 				FCBDE360278FCC0500FE087C /* CopyFiles */,
 				FCBDE35E278FCC0500FE087C /* Sources */,
 				FCBDE35F278FCC0500FE087C /* Frameworks */,
-				FC5199B5278FD8A50039E0D4 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -374,7 +294,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC51993E278FD8470039E0D4 /* app.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
