@@ -1,2 +1,2 @@
-gcc -o Pacman src/main.c -lallegro -lallegro_image -lallegro_dialog -lallegro_main
-./Pacman
+gcc -o pacman src/main.c -lallegro -lallegro_image -lallegro_dialog -lallegro_main
+./pacman
