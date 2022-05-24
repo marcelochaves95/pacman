@@ -1,9 +1,8 @@
+// Command to run
+// sh build.sh
+
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
-
-// Command to run
-// gcc -o Pacman main.c -lallegro -lallegro_image -lallegro_dialog -lallegro_main
-// ./Pacman
 
 struct obj {
     int wx;
